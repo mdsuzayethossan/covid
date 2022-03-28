@@ -1,0 +1,37 @@
+.btn.custom-dropdown {
+    display: block;
+    color: #fb5d5d;
+    margin-top: 5px;
+    margin-left: -10px;
+}
+
+.custom_menu {
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #4c4c4c;
+}
+
+.custom_menu:hover {
+    color: #fb5d5d;
+}
+
+.shipping_check input {
+    padding-left: 0;
+}
+
+.discount_price {
+    border-top: none;
+}
+
+.active-color {
+    border: 3px solid red;
+}
+
+#availableproducts .stock-status {
+    font-size: 16px;
+    color: #ee3231;
+    line-height: 30px;
+    font-weight: 700;
+}
