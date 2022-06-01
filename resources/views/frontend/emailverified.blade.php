@@ -25,7 +25,7 @@
                         @endif
                     </h5>
 
-                    <a href="{{ route('customer_register') }}" style="width: 135px; height: 33px; text-align:center; display:inline-block;     line-height: 30px;" class="shop-link btn btn-primary">Login Now</a>
+                    <a href="{{ route('customer_register') }}" style="width: 135px; height: 33px; text-align:center; display:inline-block;   line-height: 33px;" class="shop-link btn btn-primary">Login Now</a>
 
 
                 </div>

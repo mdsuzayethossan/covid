@@ -77,9 +77,9 @@
                                                 <span style="padding: 10px 0">Or, sign in with</span>
                                             </div>
 
-                                            {{-- <div class="third_party_facebook">
+                                            <div class="third_party_facebook">
                                                     <a class="third_party_login_fb" href="{{ route('facebook_redirectToProvider') }}"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
-                                            </div> --}}
+                                            </div>
                                             <div class="third_party_google">
                                                     <a class="third_party_login_g" href="{{ url('/google/redirect') }}"><i class="fa fa-google" aria-hidden="true"></i>Google</a>
                                             </div>
