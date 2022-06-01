@@ -7,11 +7,17 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\CustomerLoginController;
 use App\Http\Controllers\CustomerRegisterController;
+use App\Http\Controllers\GithubController;
+use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PasswordResetcontroller;
 use App\Models\CustomerLogin;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\FacebookController;
+use App\Http\Controllers\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,7 +94,8 @@ Route::post('/customer/login', [CustomerLoginController::class, 'customerlogin']
 Route::get('/customer/profile', [CustomerLoginController::class, 'customer_profile'])->name('customer_profile');
 Route::post('/customer/update', [CustomerRegisterController::class, 'customer_update']);
 Route::get('/customer/singout', [CustomerRegisterController::class, 'customer_singout'])->name('customer_singout');
-
+//shop
+Route::get('/shop', [ShopController::class, 'shop'])->name('shop');
 //cart
 Route::get('/cart', [CartController::class, 'cart'])->name('cart');
 // Route::get('/cart/{usecoupon}', [CartController::class, 'cart']);
@@ -118,3 +125,34 @@ Route::get('/order/success', [CheckoutController::class, 'order_success'])->name
 Route::post('/getsize_id', [ProductController::class, 'getsize_id'])->name('getsizeid');
 //send sizeId ajax
 Route::post('/sendsize_id', [ProductController::class, 'SendsizeId'])->name('SendSizeId');
+
+// SSLCOMMERZ Start
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+//SSLCOMMERZ END
+//invoice
+Route::get('/invoice/download/{order_id}', [CustomerLoginController::class, 'invoice_download'])->name('invoice.download');
+Route::get('/invoice/view/{order_id}', [CustomerLoginController::class, 'invoice_view'])->name('invoice.view');
+
+//password Reset
+Route::get('/forgotpassword', [PasswordResetcontroller::class, 'forgotpassword'])->name('forgotpassword');
+Route::post('/forgot/send/email', [PasswordResetcontroller::class, 'forgot_send_email'])->name('forgot.send.email');
+
+//Github
+Route::get('/github/redirect', [GithubController::class, 'redirectToProvider']);
+Route::get('/github/callback', [GithubController::class, 'redirectToWebsite']);
+//Google
+Route::get('/google/redirect', [GoogleController::class, 'redirectToProvider']);
+Route::get('/google/callback', [GoogleController::class, 'redirectToWebsite']);
+//Facebook
+
+
+// customer email verify
+Route::get('/customer/email/verify/{verify_token}', [CustomerLoginController::class, 'email_verify']);
+Route::get('/customer/email/verified', [CustomerLoginController::class, 'email_verified'])->name('email_verified');

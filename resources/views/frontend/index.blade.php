@@ -11,9 +11,9 @@
                         <div class="row">
                             <div class="col-xl-6 col-lg-5 col-md-5 col-sm-5 align-self-center sm-center-view">
                                 <div class="hero-slide-content hero-slide-content-2 slider-animated-1">
-                                    <span class="category">Sale 45% Off</span>
-                                    <h2 class="title-1">Exclusive New<br> Offer 2021</h2>
-                                    <a href="shop-left-sidebar.html" class="btn btn-lg btn-primary btn-hover-dark"> Shop
+                                    <span class="category">Sale 55% Off</span>
+                                    <h2 class="title-1">Popular Item<br> Offer 2022</h2>
+                                    <a href="{{ route('shop') }}" class="btn btn-lg btn-primary btn-hover-dark"> Shop
                                         Now <i class="fa fa-shopping-basket ml-15px" aria-hidden="true"></i></a>
                                 </div>
                             </div>
@@ -21,7 +21,7 @@
                                 class="col-xl-6 col-lg-7 col-md-7 col-sm-7 d-flex justify-content-center position-relative">
                                 <div class="show-case">
                                     <div class="hero-slide-image">
-                                        <img src="{{ asset('frontend_assets/images/slider-image/slider-2-1.png') }}"
+                                        <img src="{{ asset('frontend_assets/images/slider-image/slider_3.png') }}"
                                             alt="" />
                                     </div>
                                 </div>
@@ -36,7 +36,7 @@
                             <div class="col-xl-6 col-lg-5 col-md-5 col-sm-5 align-self-center sm-center-view">
                                 <div class="hero-slide-content hero-slide-content-2 slider-animated-1">
                                     <span class="category">Sale 45% Off</span>
-                                    <h2 class="title-1">Exclusive New<br> Offer 2021</h2>
+                                    <h2 class="title-1">Exclusive New<br> Offer 2022</h2>
                                     <a href="shop-left-sidebar.html" class="btn btn-lg btn-primary btn-hover-dark"> Shop
                                         Now <i class="fa fa-shopping-basket ml-15px" aria-hidden="true"></i></a>
                                 </div>
@@ -46,6 +46,29 @@
                                 <div class="show-case">
                                     <div class="hero-slide-image">
                                         <img src="{{ asset('frontend_assets/images/slider-image/slider-2-2.png') }}"
+                                            alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-slide-item-2 slider-height swiper-slide d-flex bg-color2">
+                    <div class="container align-self-center">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-5 col-md-5 col-sm-5 align-self-center sm-center-view">
+                                <div class="hero-slide-content hero-slide-content-2 slider-animated-1">
+                                    <span class="category">Sale 45% Off</span>
+                                    <h2 class="title-1">Exclusive Product<br> Offer 2022</h2>
+                                    <a href="shop-left-sidebar.html" class="btn btn-lg btn-primary btn-hover-dark"> Shop
+                                        Now <i class="fa fa-shopping-basket ml-15px" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                            <div
+                                class="col-xl-6 col-lg-7 col-md-7 col-sm-7 d-flex justify-content-center position-relative">
+                                <div class="show-case">
+                                    <div class="hero-slide-image">
+                                        <img src="{{ asset('frontend_assets/images/slider-image/slider_4.png') }}"
                                             alt="" />
                                     </div>
                                 </div>
@@ -178,13 +201,13 @@
                                                             class="pe-7s-refresh-2"></i></a>
                                                 </div>
                                                 @auth('customerlogin')
-                                                <button title="Add To Cart" class=" add-to-cart">Add
+                                                <button title="Add To Cart" class="add-to-cart">Add
                                                     To Cart</button>
                                                 @else
                                                 <a href="{{ url('/customer_register') }}" class=" add-to-cart">Add
                                                     To Cart</a>
                                                 @endauth
-                                                
+
                                             </div>
                                             <div class="content">
                                                 <span class="ratings">
@@ -198,9 +221,9 @@
                                                     </a>
                                                 </h5>
                                                 <span class="price">
-                                                    <span class="new">৳{{ $product->discount_price }}</span>
+                                                    <span class="new">${{ $product->discount_price }}</span>
                                                     {{-- <del style="color: #999"></del> --}}
-                                                    <span class="old">৳{{ $product->product_price }}</span>
+                                                    <span class="old">${{ $product->product_price }}</span>
                                                 </span>
                                             </div>
                                         </div>
@@ -338,7 +361,7 @@
                                         </div>
                                     </div>
                                     {{-- Modal end here --}}
-                                @endforeach
+                                     @endforeach
 
                             </div>
                         </div>

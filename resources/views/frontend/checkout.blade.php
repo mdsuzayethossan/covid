@@ -209,7 +209,8 @@
                                         @endphp
                                         @foreach ( $carts as $cart)
                                         <li><span class="order-middle-left">{{ $cart->rel_to_product->product_name }} X {{ $cart->quantity }}</span> <span
-                                            class="order-price">${{ $cart->rel_to_product->discount_price*$cart->quantity }}</span></li>
+                                            class="order-price">${{ $cart->rel_to_product->discount_price*$cart->quantity }}</span>
+                                        </li>
                                             @php
                                                 $total += $cart->rel_to_product->discount_price*$cart->quantity;
                                             @endphp
@@ -247,6 +248,7 @@
                                         @php
                                             $discount = session('discount');
                                             $after_discount = $total*$discount/100;
+                                            $grand_total = $total-$after_discount;
                                         @endphp
 
                                         <li class="order-total">Total</li>
@@ -254,9 +256,9 @@
 
                                     </ul>
                                 {{-- order table informatin --}}
+                                {{-- <input type="hidden" name="user_id" value="{{ Auth::guard('customerlogin')->id() }}"/> --}}
                                 <input type="hidden" name="subtotal" id="" value="{{ $total }}">
                                 <input type="hidden" name="discount" value="{{  $after_discount }}">
-                                <input type="hidden" class="total" name="grand_total" value="{{ $total-$after_discount }}">
                                 </div>
                             </div>
                             <div class="payment-method">
@@ -322,9 +324,13 @@
     $('.charge').click(function() {
         var charge = $(this).val();
         $('#charge').html(charge);
-        var total = $('.total').val();
-        var grand_total = parseInt(charge)+parseInt(total);
-        $('#grand_total').html(grand_total);
+
+        var total = {{ $grand_total }};
+        var grand_total = parseInt(charge)+total;
+        $('#grand_total').val(grand_total);
+
+        $('#grand_total').html('$'+grand_total);
+
 
     });
 </script>

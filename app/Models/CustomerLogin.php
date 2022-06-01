@@ -11,7 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 class CustomerLogin extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    protected $guarded = ['id', 'email'];
+    protected $guarded = ['id'];
 
     protected $guard = 'customerlogin';
     protected $casts = [

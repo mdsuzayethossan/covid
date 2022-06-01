@@ -1941,7 +1941,7 @@ only screen and (max-width:767px) {
     align-items: center;
     justify-content: space-between;
     font-size: 16px;
-    padding: 6px 10px 7px 30px;
+    padding: 15px 10px 15px 30px;
     border: 1px solid #cfcfcf;
     border-radius: 10px
 }
@@ -4666,9 +4666,14 @@ only screen and (max-width:767px) {
 
 .login-register-wrapper .login-form-container {
     background: transparent none repeat scroll 0 0;
-    box-shadow: 0 0 6px rgba(0, 0, 0, .1);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 5px;
     padding: 80px;
-    text-align: left
+    text-align: left;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
 
 .login-register-wrapper .login-form-container .login-register-form input {
@@ -4714,14 +4719,14 @@ only screen and (max-width:767px) {
 }
 
 .login-register-wrapper .login-form-container .login-register-form .button-box button {
-    background-color: #f2f2f2;
     border: medium none;
-    color: #000;
+    color: #fff;
+    background-color: #fb5d5d;
     cursor: pointer;
+    padding: 7px 75px;
     font-size: 14px;
     font-weight: 600;
     line-height: 1;
-    padding: 11px 30px;
     text-transform: uppercase;
     transition: all .3s ease 0s;
     outline: 0;

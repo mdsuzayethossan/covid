@@ -1,6 +1,5 @@
 @extends('frontend.master');
 @section('content')
-
     <!-- breadcrumb-area start -->
     <div class="breadcrumb-area">
         <div class="container">
@@ -65,7 +64,7 @@
                                             <th>Date</th>
                                             <th>Status</th>
                                             <th>Total</th>
-                                            <th>Actions</th>
+                                            <th colspan="2">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -76,7 +75,8 @@
                                             <td>{{ $order->created_at->format('d/M/y') }}</td>
                                             <td><span class="success">Completed</span></td>
                                             <td>{{ $order->total }} for {{ $order->quantity }} item </td>
-                                            <td><a href="cart.html" class="view">view</a></td>
+                                            <td><a href="{{ route('invoice.view', $order->id) }}" class="view">view</a></td>
+                                            <td><a href="{{ route('invoice.download', $order->id) }}" class="view">Download</a></td>
                                         </tr>
 
                                         @endforeach

@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\cart;
 use App\Models\Coupon;
 use App\Models\inventory;

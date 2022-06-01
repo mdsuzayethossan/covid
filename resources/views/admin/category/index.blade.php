@@ -1,4 +1,4 @@
-{{-- Category Index --}}
+
 @extends('layouts.admin')
 @section('categoryactive')
     active
@@ -17,7 +17,6 @@
 
         <div class="sl-pagebody">
             <div class="">
-
                 <div class="row" style="margin-bottom: 50px;">
                     <div class="col-lg-4 m-auto">
                         <div class="card custom_card">
