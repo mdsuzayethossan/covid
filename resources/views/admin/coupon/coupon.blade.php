@@ -1,7 +1,7 @@
 @extends('layouts.admin');
 @section('couponactive')
 active
-    
+
 @endsection
 @section('title')
     Coupon
@@ -20,7 +20,7 @@ active
                     <div class="col-lg-7">
                         <div class="card">
                             <div class="card-header"
-                                style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fd3d6b 0, #fd7863 98%, #f3dfe0 100%); color: white;">
+                                style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fb5d5d 0, #fd7863 98%, #f3dfe0 100%); color: white;">
                                 <div class="card-title">
                                     <h1
                                         style="text-transform: uppercase; letter-spacing: 2px; color: white; text-align: center;">
@@ -55,7 +55,7 @@ active
                                                 </td>
                                                 <td>{{ $coupon->discount }}</td>
                                                 <td>{{ $coupon->created_at->diffforHumans() }}</td>
-                                                <td>{{ $coupon->updated_at }}</td> 
+                                                <td>{{ $coupon->updated_at }}</td>
                                                 <td>
                                                     {{-- <a href="{{ url('/category/edit') }}/{{ $coupon->id }}"
                                                         class="btn btn-secondary">Edit</a>
@@ -73,7 +73,7 @@ active
                     <div class="col-lg-5">
                         <div class="card custom_card">
                             <div class="card-header"
-                                style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fd3d6b 0, #fd7863 98%, #f3dfe0 100%); color: white;">
+                                style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fb5d5d 0, #fd7863 98%, #f3dfe0 100%); color: white;">
                                 <div class="card-title">
                                     <h1
                                         style="text-transform: uppercase; letter-spacing: 2px; color: white; text-align: center;">
@@ -112,7 +112,7 @@ active
                                     </div>
                                     <div class="form-group text-center mt-3">
                                         <button
-                                            style="text-transform: uppercase; letter-spacing: 2px;background: linear-gradient(-155deg, #fd3d6b 0, #fd7863 98%, #f3dfe0 100%); color: white;"
+                                            style="text-transform: uppercase; letter-spacing: 2px;background: linear-gradient(-155deg, #fb5d5d 0, #fd7863 98%, #f3dfe0 100%); color: white;"
                                             class="btn text-center" type="submit">Add Coupon</button>
                                     </div>
                                 </form>

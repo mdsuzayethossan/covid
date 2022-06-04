@@ -78,7 +78,7 @@
                                             </div>
 
                                             <div class="third_party_facebook">
-                                                    <a class="third_party_login_fb" href="{{ route('facebook_redirectToProvider') }}"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
+                                                    <a class="third_party_login_fb" href=""><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
                                             </div>
                                             <div class="third_party_google">
                                                     <a class="third_party_login_g" href="{{ url('/google/redirect') }}"><i class="fa fa-google" aria-hidden="true"></i>Google</a>

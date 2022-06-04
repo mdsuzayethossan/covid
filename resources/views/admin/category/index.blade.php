@@ -21,7 +21,7 @@
                     <div class="col-lg-4 m-auto">
                         <div class="card custom_card">
                             <div class="card-header"
-                                style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fd3d6b 0, #fd7863 98%, #f3dfe0 100%); color: white;">
+                                style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fb5d5d 0, #fd7863 98%, #f3dfe0 100%); color: white;">
                                 <div class="card-title">
                                     <h1
                                         style="text-transform: uppercase; letter-spacing: 2px; color: white; text-align: center;">
@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="form-group text-center mt-3">
                                         <button
-                                            style="text-transform: uppercase; letter-spacing: 2px;background: linear-gradient(-155deg, #fd3d6b 0, #fd7863 98%, #f3dfe0 100%); color: white;"
+                                            style="text-transform: uppercase; letter-spacing: 2px;background: linear-gradient(-155deg, #fb5d5d 0, #fd7863 98%, #f3dfe0 100%); color: white;"
                                             class="btn text-center" type="submit">Add Category</button>
                                     </div>
                                 </form>
@@ -59,7 +59,7 @@
                     <div class="col-lg-10 m-auto">
                         <div class="card">
                             <div class="card-header"
-                                style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fd3d6b 0, #fd7863 98%, #f3dfe0 100%); color: white;">
+                                style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fb5d5d 0, #fd7863 98%, #f3dfe0 100%); color: white;">
                                 <div class="card-title">
                                     <h1
                                         style="text-transform: uppercase; letter-spacing: 2px; color: white; text-align: center;">
@@ -117,7 +117,7 @@
                     <div class="col-lg-10 m-auto">
                         <div class="card">
                             <div class="card-header"
-                                style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fd3d6b 0, #fd7863 98%, #f3dfe0 100%); color: white;">
+                                style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fb5d5d 0, #fd7863 98%, #f3dfe0 100%); color: white;">
                                 <div class="card-title">
                                     <h1
                                         style="text-transform: uppercase; letter-spacing: 2px; color: white; text-align: center;">
@@ -159,7 +159,7 @@
                                                         class="btn btn-secondary">Edit</a>
                                                     <a href="{{ url('/category/restore') }}/{{ $trashed_category->id }}"
                                                         class="btn btn-danger">Restore</a>
-                                                    <a href="{{ url('/category/delete') }}/{{ $trashed_category->id }}"
+                                                    <a href="{{ url('/category/forcedelete') }}/{{ $trashed_category->id }}"
                                                         class="btn btn-danger">Delete</a>
                                                 </td>
                                             </tr>
@@ -174,4 +174,29 @@
         </div><!-- sl-pagebody -->
     </div><!-- sl-mainpanel -->
     <!-- ########## END: MAIN PANEL ########## -->
+@endsection
+
+@section('footer_script')
+<script>
+    @if (session('category_force_delete'))
+    const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+
+  Toast.fire({
+    icon: 'success',
+    title: '{{ session('category_force_delete') }}'
+  });
+
+
+@endif
+</script>
 @endsection

@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 class ShopController extends Controller
 {
     function shop(Request $request) {
+
        $product_search_data_cought = $request->all();
        $all_products = Product::where(function ($product_search_information) use ($product_search_data_cought) {
            if(!empty($product_search_data_cought['search_value']) && $product_search_data_cought['search_value'] != '') {
@@ -24,6 +25,26 @@ class ShopController extends Controller
                    $product_search_information->where('category_id', 'like', '%'.$product_search_data_cought['category_id'].'%');
 
                });
+           }
+           if(!empty($product_search_data_cought['color_id']) && $product_search_data_cought['color_id'] != '' || !empty($product_search_data_cought['size_id']) && $product_search_data_cought['size_id'] != '') {
+            $product_search_information->whereHas('inventories', function ($product_search_information) use ($product_search_data_cought){
+                if(!empty($product_search_data_cought['color_id']) && $product_search_data_cought['color_id'] != '') {
+                    $product_search_information->whereHas('color', function ($product_search_information) use ($product_search_data_cought) {
+                        $product_search_information->where('colors.id', $product_search_data_cought['color_id']);
+
+                    });
+
+                }
+                if(!empty($product_search_data_cought['size_id']) && $product_search_data_cought['size_id'] != '') {
+                    $product_search_information->whereHas('size', function ($product_search_information) use ($product_search_data_cought) {
+                        $product_search_information->where('sizes.id', $product_search_data_cought['size_id']);
+
+                    });
+
+                }
+
+               });
+
            }
 
        })->get();

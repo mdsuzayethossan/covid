@@ -28,4 +28,10 @@ class SubcategoryRequest extends FormRequest
             'subcategory_name' => 'required',
         ];
     }
+    public function messages()
+    {
+        return [
+            'subcategory_name.required' => 'The subcategory name field is required.',
+        ];
+    }
 }

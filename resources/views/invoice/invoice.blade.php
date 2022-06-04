@@ -23,7 +23,7 @@ caption {
     padding: 30px 50px 0px 0px;
     height: 100px;
     z-index: 999;
-    background-image: linear-gradient(to bottom, #ff8100, #FFA500);
+    background-image: linear-gradient(to bottom, #ff8100, #fb5d5d);
     border-radius: 0px 100px 101px 0px;
 
 } */
@@ -75,7 +75,7 @@ caption {
         <table>
             <tr>
                 <td style="text-align:right; font-weight: 600;
-                color: #FFA500;
+                color: #fb5d5d;
                 font-size: 30px; padding-bottom: 8px;">INVOICE<br/></td>
             </tr>
             <tr>
@@ -130,7 +130,7 @@ caption {
           <td width="32%"></td>
           <td width="28%"></td>
           <td width="28%"></td>
-          <td width="12%" style="font-weight:700; color: #FFA500;">${{  $total }}</td>
+          <td width="12%" style="font-weight:700; color: #fb5d5d;">${{  $total }}</td>
       </tr>
   </table>
   <table class="invoice_button" style="max-width: 1200px; margin: 0 auto; text-align: center; margin-top: 50px;">

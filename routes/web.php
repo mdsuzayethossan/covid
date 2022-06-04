@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CouponController;
@@ -12,12 +13,17 @@ use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\PasswordResetcontroller;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubcategoryController;
+use App\Http\Controllers\categoryController;
 use App\Models\CustomerLogin;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FacebookController;
-use App\Http\Controllers\ShopController;
+use Illuminate\Support\Facades\App;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +36,7 @@ use App\Http\Controllers\ShopController;
 |
 */
 // fronend
-Route::get('/', [App\Http\Controllers\FrontendController::class, 'index'])->name('index');
+Route::get('/', [FrontendController::class, 'index'])->name('index');
 // Route::get('/', function () {
 //     return view('frontend.index');
 // });
@@ -44,28 +50,30 @@ Route::post('/add/role', [HomeController::class, 'role']);
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/admin', [HomeController::class, 'admin'])->name('admin');
 
-
+//navigation bar
+Route::get('/navigationbar', [BannerController::class, 'navigationbar'])->name('navigationbar');
 //Category
-Route::get('/category', [App\Http\Controllers\CategoryController::class, 'category'])->name('category');
-Route::post('/category/insert', [App\Http\Controllers\CategoryController::class, 'insert'])->name('category_insert');
-Route::get('/category/delete/{category_id}', [App\Http\Controllers\CategoryController::class, 'delete'])->name('category_delete');
-Route::get('/category/edit/{category_id}', [App\Http\Controllers\CategoryController::class, 'edit'])->name('category_edit');
-Route::post('/category/update', [App\Http\Controllers\CategoryController::class, 'update'])->name('category_update');
-Route::get('/category/restore/{category_id}', [App\Http\Controllers\CategoryController::class, 'restore'])->name('category_restore');
+Route::get('/category', [CategoryController::class, 'category'])->name('category');
+Route::post('/category/insert', [CategoryController::class, 'insert'])->name('category_insert');
+Route::get('/category/delete/{category_id}', [CategoryController::class, 'delete'])->name('category_delete');
+Route::get('/category/edit/{category_id}', [CategoryController::class, 'edit'])->name('category_edit');
+Route::post('/category/update', [CategoryController::class, 'update'])->name('category_update');
+Route::get('/category/restore/{category_id}', [CategoryController::class, 'restore'])->name('category_restore');
+Route::get('/category/forcedelete/{trashed_category_id}', [CategoryController::class, 'force_delete'])->name('force_delete');
 
 //subcategory
-Route::get('/subcategory', [App\Http\Controllers\SubcategoryController::class, 'subcategory'])->name('sub_category');
-Route::post('/subcategory/insert', [App\Http\Controllers\SubcategoryController::class, 'insert'])->name('sub_category_insert');
-Route::get('/subcategory/edit/{subcategory_id}', [App\Http\Controllers\SubcategoryController::class, 'edit'])->name('sub_category_edit');
-Route::get('/subcategory/delete/{subcategory_id}', [App\Http\Controllers\SubcategoryController::class, 'delete'])->name('sub_category_delete');
-Route::post('/subcategory/update', [App\Http\Controllers\SubcategoryController::class, 'update'])->name('sub_category_update');
-Route::get('/subcategory/restore/{subcategory_id}', [App\Http\Controllers\SubcategoryController::class, 'restore'])->name('sub_category_restore');
-Route::get('/subcategory/permanent_delete/{subcategory_id}', [App\Http\Controllers\SubcategoryController::class, 'sub_per_delete'])->name('sub_per_delete');
+Route::get('/subcategory', [SubcategoryController::class, 'subcategory'])->name('sub_category');
+Route::post('/subcategory/insert', [SubcategoryController::class, 'insert'])->name('sub_category_insert');
+Route::get('/subcategory/edit/{subcategory_id}', [SubcategoryController::class, 'edit'])->name('sub_category_edit');
+Route::get('/subcategory/delete/{subcategory_id}', [SubcategoryController::class, 'delete'])->name('sub_category_delete');
+Route::post('/subcategory/update', [SubcategoryController::class, 'update'])->name('sub_category_update');
+Route::get('/subcategory/restore/{subcategory_id}', [SubcategoryController::class, 'restore'])->name('sub_category_restore');
+Route::get('/subcategory/permanent_delete/{subcategory_id}', [SubcategoryController::class, 'sub_per_delete'])->name('sub_per_delete');
 
 
 // Profile
-Route::get('/profile/edit', [App\Http\Controllers\ProfileController::class, 'profile_edit'])->name('profile_edit');
-Route::post('/profile/update', [App\Http\Controllers\ProfileController::class, 'profile_update'])->name('profile_update');
+Route::get('/profile/edit', [ProfileController::class, 'profile_edit'])->name('profile_edit');
+Route::post('/profile/update', [ProfileController::class, 'profile_update'])->name('profile_update');
 
 //product
 

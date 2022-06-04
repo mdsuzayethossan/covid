@@ -47,10 +47,12 @@ class CategoryController extends Controller
     {
 
         category::find($category_id)->delete();
-        // category::find($category_id)->update([
-        //     'delete_by' => Auth::id(),
-        // ]);
         return back()->with('delete', 'Category deleted successfully');
+    }
+    function force_delete($trashed_category_id) {
+        category::onlyTrashed()->find($trashed_category_id)->forceDelete();
+        return back()->with('category_force_delete', 'Category item permanent deleted successfully');
+
     }
     function edit($category_id)
     {

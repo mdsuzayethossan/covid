@@ -1,7 +1,7 @@
 {{-- Sub Category Edit --}}
 @extends('layouts.admin')
 @section('subcategoryactive')
-active  
+active
 @endsection
 @section('title')
 Covid-Subcategory-Edit
@@ -21,12 +21,12 @@ Covid-Subcategory-Edit
             <div class="row">
                 <div class="col-lg-6 m-auto">
                     <div class="card custom_card">
-                        <div class="card-header" style="text-transform: uppercase; letter-spacing: 2px; background-color: tomato; color: white;">
+                        <div class="card-header" style="text-transform: uppercase; letter-spacing: 2px; background-color: #fb5d5d; color: white;">
                             <div class="card-title">
                                 <h1 style="text-transform: uppercase; letter-spacing: 2px; color: white; text-align: center;">
                                     Edit Category</h1>
                             </div>
-        
+
                         </div>
                         @if (session('update'))
                         <div class="alert alert-success"> {{session('update')}}</div>
@@ -35,7 +35,7 @@ Covid-Subcategory-Edit
                             <div class="alert alert-danger">
                                 {{session('existsubcategory')}}
                             </div>
-                            
+
                         @endif
                         <div class="card-body">
                             <form action="{{url('/subcategory/update')}}" method="POST">
@@ -43,10 +43,10 @@ Covid-Subcategory-Edit
                                 <input type="hidden" name="subcategory_id" value="{{$subcategories->id}}">
                                 <div class="form-group">
                                     <select name="category_id" id="" class="form-control form-label">
-                                        <option value="">--Select Category--</option>  
+                                        <option value="">--Select Category--</option>
                                         @foreach ($category as $category)
-                                            <option value="{{$category->id}}" {{($category->id == $subcategories->category_id)?'selected':''}}>{{$category->category_name}}</option>    
-                                        @endforeach 
+                                            <option value="{{$category->id}}" {{($category->id == $subcategories->category_id)?'selected':''}}>{{$category->category_name}}</option>
+                                        @endforeach
                                     </select>
                                     @error('category_id')
                                     <div class="alert alert-warning">
@@ -64,12 +64,12 @@ Covid-Subcategory-Edit
                                     @enderror
                                 </div>
                                 <div class="form-group text-center mt-3">
-                                    <button style="text-transform: uppercase; letter-spacing: 2px; background-color: tomato; color: white;" class="btn text-center" type="submit">Update Category</button>
+                                    <button style="text-transform: uppercase; letter-spacing: 2px; background-color: #fb5d5d; color: white;" class="btn text-center" type="submit">Update Category</button>
                                 </div>
                             </form>
                         </div>
                     </div>
-        
+
                 </div>
             </div>
         </div>

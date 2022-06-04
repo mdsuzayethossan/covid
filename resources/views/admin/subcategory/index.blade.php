@@ -21,7 +21,7 @@ Covid-Subcategory
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="card">
-                            <div class="card-header" style="text-transform: uppercase; letter-spacing: 2px; background-color: tomato; color: white;">
+                            <div class="card-header" style="text-transform: uppercase; letter-spacing: 2px; background-color: #fb5d5d; color: white;">
                                 <div class="card-title">
                                     <h2 style="text-transform: uppercase; letter-spacing: 2px; color: white; text-align: center;">
                                         Subcategory Information</h2>
@@ -55,7 +55,7 @@ Covid-Subcategory
                                             <td>{{$subcategory->updated_at}}</td>
                                             <td>
                                                 <a href="{{url('/subcategory/edit')}}/{{$subcategory->id}}" class="btn btn-warning">Edit</a>
-                                                <a href="{{url('/subcategory/delete')}}/{{$subcategory->id}}" style="background-color: tomato; color:white" class="btn">Delete</a>
+                                                <a href="{{url('/subcategory/delete')}}/{{$subcategory->id}}" style="background-color: #fb5d5d; color:white" class="btn">Delete</a>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -66,7 +66,7 @@ Covid-Subcategory
                     </div>
                     <div class="col-lg-4">
                         <div class="card">
-                            <div class="card-header" style="text-transform: uppercase; letter-spacing: 2px; background-color: tomato; color: white;">
+                            <div class="card-header" style="text-transform: uppercase; letter-spacing: 2px; background-color: #fb5d5d; color: white;">
                                 <div class="card-title">
                                     <h2 style="text-transform: uppercase; letter-spacing: 2px; color: white; text-align: center;">
                                         Add Subcategory</h2>
@@ -102,7 +102,7 @@ Covid-Subcategory
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="">Sub Category Name</label>
-                                        <input type="text" name="subcategory" class="form-control">
+                                        <input type="text" name="subcategory_name" class="form-control">
                                         @error('subcategory_name')
                                         <div class="alert alert-warning">
                                             {{$message}}
@@ -110,7 +110,7 @@ Covid-Subcategory
                                         @enderror
                                     </div>
                                     <div class="form-group text-center mt-3">
-                                        <button style="text-transform: uppercase; letter-spacing: 2px; background-color: tomato; color: white;" class="btn text-center" type="submit">Add Sub Category</button>
+                                        <button style="text-transform: uppercase; letter-spacing: 2px; background-color: #fb5d5d; color: white;" class="btn text-center" type="submit">Add Sub Category</button>
                                     </div>
                                 </form>
                             </div>
@@ -119,7 +119,7 @@ Covid-Subcategory
                     {{-- Trashed Subcategory Information --}}
                     <div class="col-lg-8">
                         <div class="card">
-                            <div class="card-header" style="text-transform: uppercase; letter-spacing: 2px; background-color: tomato; color: white;">
+                            <div class="card-header" style="text-transform: uppercase; letter-spacing: 2px; background-color: #fb5d5d; color: white;">
                                 <div class="card-title">
                                     <h1 style="text-transform: uppercase; letter-spacing: 2px; color: white; text-align: center;">
                                         Trashed Subcategory Information</h1>
@@ -153,7 +153,7 @@ Covid-Subcategory
                                             <td>{{$trashedsubcategory->updated_at}}</td>
                                             <td>
                                                 <a href="{{url('/subcategory/restore')}}/{{$trashedsubcategory->id}}" class="btn btn-warning">Restore</a>
-                                                <a href="{{url('/subcategory/permanent_delete')}}/{{$trashedsubcategory->id}}" style="background-color: tomato; color:white" class="btn">Delete</a>
+                                                <a href="{{url('/subcategory/permanent_delete')}}/{{$trashedsubcategory->id}}" style="background-color: #fb5d5d; color:white" class="btn">Delete</a>
                                             </td>
                                         </tr>
                                         @endforeach

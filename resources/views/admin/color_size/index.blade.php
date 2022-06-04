@@ -60,7 +60,7 @@
                                                         <a href="{{ url('/subcategory/edit') }}/{{ $color->id }}"
                                                             class="btn btn-warning">Edit</a>
                                                         <a href="{{ url('/subcategory/delete') }}/{{ $color->id }}"
-                                                            style="background: linear-gradient(-155deg, #fd3d6b 0, #fd7863 98%, #f3dfe0 100%); color:white"
+                                                            style="background: linear-gradient(-155deg, #fb5d5d 0, #fd7863 98%, #f3dfe0 100%); color:white"
                                                             class="btn">Delete</a>
                                                     </td>
                                                 </tr>
@@ -75,7 +75,7 @@
                         <div class="col-lg-4" style="margin-bottom: 20px">
                             <div class="card">
                                 <div class="card-header"
-                                    style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fd3d6b 0, #fd7863 98%, #f3dfe0 100%); color: white;">
+                                    style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fb5d5d 0, #fd7863 98%, #f3dfe0 100%); color: white;">
                                     <div class="card-title">
                                         <h2
                                             style="text-transform: uppercase; letter-spacing: 2px; color: white; text-align: center;">
@@ -116,7 +116,7 @@
                                         </div>
                                         <div class="form-group text-center mt-3">
                                             <button
-                                                style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fd3d6b 0, #fd7863 98%, #f3dfe0 100%); color: white;"
+                                                style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fb5d5d 0, #fd7863 98%, #f3dfe0 100%); color: white;"
                                                 class="btn text-center" type="submit">Add Color</button>
                                         </div>
                                     </form>
@@ -127,7 +127,7 @@
                         <div class="col-lg-8">
                             <div class="card">
                                 <div class="card-header"
-                                    style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fd3d6b 0, #fd7863 98%, #f3dfe0 100%); color: white;">
+                                    style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fb5d5d 0, #fd7863 98%, #f3dfe0 100%); color: white;">
                                     <div class="card-title">
                                         <h1
                                             style="text-transform: uppercase; letter-spacing: 2px; color: white; text-align: center;">
@@ -161,7 +161,7 @@
                                                         <a href="{{ url('/subcategory/edit') }}/{{ $size->id }}"
                                                             class="btn btn-warning">Edit</a>
                                                         <a href="{{ url('/subcategory/delete') }}/{{ $size->id }}"
-                                                            style="background: linear-gradient(-155deg, #fd3d6b 0, #fd7863 98%, #f3dfe0 100%); color:white"
+                                                            style="background: linear-gradient(-155deg, #fb5d5d 0, #fd7863 98%, #f3dfe0 100%); color:white"
                                                             class="btn">Delete</a>
                                                     </td>
                                                 </tr>
@@ -175,7 +175,7 @@
                         <div class="col-lg-4">
                             <div class="card">
                                 <div class="card-header"
-                                    style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fd3d6b 0, #fd7863 98%, #f3dfe0 100%); color: white;">
+                                    style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fb5d5d 0, #fd7863 98%, #f3dfe0 100%); color: white;">
                                     <div class="card-title">
                                         <h2
                                             style="text-transform: uppercase; letter-spacing: 2px; color: white; text-align: center;">
@@ -207,7 +207,7 @@
                                         </div>
                                         <div class="form-group text-center mt-3">
                                             <button
-                                                style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fd3d6b 0, #fd7863 98%, #f3dfe0 100%); color: white;"
+                                                style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fb5d5d 0, #fd7863 98%, #f3dfe0 100%); color: white;"
                                                 class="btn text-center" type="submit">Add size</button>
                                         </div>
                                     </form>

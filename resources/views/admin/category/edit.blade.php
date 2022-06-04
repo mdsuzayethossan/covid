@@ -20,7 +20,7 @@
                     <div class="col-lg-6 m-auto">
                         <div class="card custom_card">
                             <div class="card-header"
-                                style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fd3d6b 0, #fd7863 98%, #f3dfe0 100%); color: white;">
+                                style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fb5d5d 0, #fd7863 98%, #f3dfe0 100%); color: white;">
                                 <div class="card-title">
                                     <h1
                                         style="text-transform: uppercase; letter-spacing: 2px; color: white; text-align: center;">
@@ -51,7 +51,7 @@
                                     </div>
                                     <div class="form-group text-center mt-3">
                                         <button
-                                            style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fd3d6b 0, #fd7863 98%, #f3dfe0 100%); color: white;"
+                                            style="text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(-155deg, #fb5d5d 0, #fd7863 98%, #f3dfe0 100%); color: white;"
                                             class="btn text-center" type="submit">Update Category</button>
                                     </div>
                                 </form>

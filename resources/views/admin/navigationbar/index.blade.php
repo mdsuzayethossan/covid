@@ -1,0 +1,9 @@
+@extends('layouts.admin')
+@section('navigationactive')
+active
+@endsection
+@section('title')
+Navigationbar
+@endsection
+@section('content')
+@endsection

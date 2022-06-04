@@ -29,7 +29,7 @@
     <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
     <meta name="author" content="ThemePixels">
 
-    <title>Starlight Responsive Bootstrap 4 Admin Template</title>
+    <title>suzayet store</title>
 
     <!-- vendor css -->
     <link href="{{ asset('dashboard_assets/lib/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
@@ -46,9 +46,8 @@
     <div class="d-flex align-items-center justify-content-center bg-sl-primary ht-md-100v">
 
         <div class="login-wrapper wd-300 wd-xs-400 pd-25 pd-xs-40 bg-white">
-            <div class="signin-logo tx-center tx-24 tx-bold tx-inverse">starlight <span
-                    class="tx-info tx-normal">admin</span></div>
-            <div class="tx-center mg-b-60">Professional Admin Template Design</div>
+            <div class="signin-logo tx-center tx-24 tx-bold tx-inverse"><img src="{{ asset('frontend_assets/images/logo/logo.png') }}" alt=""></div>
+
             <form method="POST" action="{{ route('register') }}">
                 @csrf
 

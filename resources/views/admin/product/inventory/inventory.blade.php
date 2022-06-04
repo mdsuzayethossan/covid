@@ -11,7 +11,7 @@
                 <div class="col-lg-8">
                     <div class="card">
                         <div class="card-header"
-                            style="text-transform: uppercase; letter-spacing: 2px; background-color: tomato; color: white;">
+                            style="text-transform: uppercase; letter-spacing: 2px; background-color: #fb5d5d; color: white;">
                             <div class="card-title">
                                 <h2
                                     style="text-transform: uppercase; letter-spacing: 2px; color: white; text-align: center;">
@@ -60,7 +60,7 @@
                 <div class="col-lg-4">
                     <div class="card">
                         <div class="card-header"
-                            style="text-transform: uppercase; letter-spacing: 2px; background-color: tomato; color: white;">
+                            style="text-transform: uppercase; letter-spacing: 2px; background-color: #fb5d5d; color: white;">
                             <div class="card-title">
                                 <h2
                                     style="text-transform: uppercase; letter-spacing: 2px; color: white; text-align: center;">
@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="form-group text-center mt-3">
                                     <button
-                                        style="text-transform: uppercase; letter-spacing: 2px; background-color: tomato; color: white;"
+                                        style="text-transform: uppercase; letter-spacing: 2px; background-color: #fb5d5d; color: white;"
                                         class="btn text-center" type="submit">Add Inventory</button>
                                 </div>
 
