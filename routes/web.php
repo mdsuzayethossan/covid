@@ -37,6 +37,7 @@ use Illuminate\Support\Facades\App;
 */
 // fronend
 Route::get('/', [FrontendController::class, 'index'])->name('index');
+
 // Route::get('/', function () {
 //     return view('frontend.index');
 // });
@@ -149,8 +150,13 @@ Route::get('/invoice/download/{order_id}', [CustomerLoginController::class, 'inv
 Route::get('/invoice/view/{order_id}', [CustomerLoginController::class, 'invoice_view'])->name('invoice.view');
 
 //password Reset
-Route::get('/forgotpassword', [PasswordResetcontroller::class, 'forgotpassword'])->name('forgotpassword');
-Route::post('/forgot/send/email', [PasswordResetcontroller::class, 'forgot_send_email'])->name('forgot.send.email');
+Route::controller(PasswordResetcontroller::class)->group(function(){
+
+    Route::post('/forgot/send/email', 'forgot_send_email')->name('forgot.send.email');
+    Route::get('/forgotpassword', 'forgotpassword')->name('forgotpassword');
+    Route::get('/customer/password/reset/form/{reset_token}', 'CustomerResetForm')->name('customer.reset.form');
+    Route::post('/customer/password/reset/update', 'CustomerResetUpdate')->name('customer.reset.update');
+});
 
 //Github
 Route::get('/github/redirect', [GithubController::class, 'redirectToProvider']);

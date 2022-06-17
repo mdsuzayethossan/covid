@@ -6,9 +6,9 @@ use Carbon\Carbon;
 use App\Http\Requests\CustomerAuthRequest;
 use App\Models\customeremailverify;
 use App\Models\CustomerLogin;
-use Notification;
 use Illuminate\Support\Facades\Auth;
 use App\Notifications\CutomerEmailVerifyNotification;
+
 
 class CustomerRegisterController extends Controller
 {

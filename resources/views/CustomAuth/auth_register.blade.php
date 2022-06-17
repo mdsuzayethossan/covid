@@ -96,20 +96,32 @@
 
                                         <form action="{{ url('/customer/register') }}" method="post">
                                             @csrf
-                                            <input type="text" name="name" placeholder="Name" />
-                                            @error('name')
-                                            <strong class="text-danger">{{ $message }}</strong>
-                                            @enderror
-                                            <input name="email" placeholder="Email" type="email" />
-                                            @error('password')
-                                            <strong class="text-danger">{{ $message }}</strong>
-                                            @enderror
-                                            <input type="password" name="password" placeholder="Password" />
-                                            @error('password')
-                                            <strong class="text-danger">{{ $message }}</strong>
-                                            @enderror
+                                            <input type="text" name="name" placeholder="Name" value="{{ old ('name') }}">
+                                            <span class="text-danger">@error(
+                                                'name'){{ $message }}
 
-                                            <div class="button-box">
+                                               @enderror</span>
+                                            <input name="email" placeholder="Email" type="email" value="{{ old ('email') }}">
+                                            @error(
+                                                'email')
+                                            <span class="text-danger">
+                                                {{ $message }}
+
+                                              </span>
+                                              @enderror
+                                            <input type="password" name="password" placeholder="Password" value="{{ old ('password') }}">
+
+                                            <span class="text-danger">@error(
+                                                'password'){{ $message }}
+
+                                               @enderror</span>
+                                            <input type="password" name="cpassword" placeholder="Confirm Password" value="{{ old ('cpassword') }}">
+                                           <span class="text-danger">@error(
+                                            'cpassword'){{ $message }}
+
+                                           @enderror</span>
+
+                                            <div class="button-box" style="margin-top: 30px">
                                                 <button type="submit"><span>Register</span></button>
                                             </div>
                                         </form>

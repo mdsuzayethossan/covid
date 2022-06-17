@@ -16,9 +16,10 @@ class CustomerPassResetNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+    protected $reset_data = '';
+    public function __construct($reset_data)
     {
-        //
+        $this->reset_data = $reset_data;
     }
 
     /**
@@ -41,9 +42,10 @@ class CustomerPassResetNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+        ->line('You are receiving this email because we received a password reset request for your account.')
+        ->action('Reset Password', url('/customer/password/reset/form/'.$this->reset_data->reset_token))
+        ->line('This password reset link will expire in 60 minutes.')
+        ->line('If you did not request a password reset, no further action is required.');
     }
 
     /**

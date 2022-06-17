@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 text-center">
-                    <h2 class="breadcrumb-title">password reset</h2>
+                    <h2 class="breadcrumb-title">Reset</h2>
                     <!-- breadcrumb-list start -->
                     <ul class="breadcrumb-list">
                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -18,29 +18,40 @@
     </div>
 
     <!-- breadcrumb-area end -->
-    <!-- password reset start here -->
+
+    <!-- login area start -->
     <div class="login-register-area pt-100px pb-100px">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-md-12 ml-auto mr-auto">
                     <div class="login-register-wrapper">
                         <div class="login-register-tab-list nav">
-                            <a class="active">
-                                <h4>Password Reset</h4>
+                            <a class="active" data-bs-toggle="tab" href="#lg1">
+                                <h4>Reset Password</h4>
                             </a>
+
                         </div>
                         <div class="tab-content">
                             <div id="lg1" class="tab-pane active">
-                                <div class="password_reset login-form-container">
-                                    <div class="login-register-form">
-                                        <form action="{{ route('forgot.send.email') }}" method="POST">
+                                <div class="login-form-container">
+                                    <div class="login-register-form d-block">
+                                        <form action="{{ route('customer.reset.update') }}" method="POST">
                                             @csrf
-                                            <input type="email" name="email" placeholder="Email" />
-                                            @if (session('notregistered'))
-                                                <span>{{ session('notregistered') }}</span>
+                                            <input type="hidden" name="reset_token" value="{{ $reset_token }}">
+                                            <input type="password" name="password" placeholder="New Password">
+                                            @error('password')
+                                            <span class="text-danger">
+                                                {{ $message }}
+                                               </span>
+                                               @enderror
+                                            <input type="password" name="Confirm_Password" placeholder="Confirm Password">
+                                            @error('Confirm_Password')
+                                            <span class="text-danger">
+                                                {{ $message }}
+                                               </span>
+                                               @enderror
+                                            <div class="button-box mt-4">
 
-                                            @endif
-                                            <div class="button-box text-center mt-3">
                                                 <button type="submit"><span>Reset</span></button>
                                             </div>
                                         </form>
@@ -53,6 +64,5 @@
             </div>
         </div>
     </div>
-    <!-- password reset end here -->
-
+    <!-- login area end -->
 @endsection

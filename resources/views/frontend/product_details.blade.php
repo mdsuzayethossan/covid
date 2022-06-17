@@ -158,14 +158,27 @@
                             <ul class="d-flex">
                                 <li>
                                     <a
-                                        href="#">{{ App\Models\Subcategory::find($sing_product_info->subcategory_id)->subcategory_name }}</a>
+                                        href="#">
+                                        @if (App\Models\Subcategory::find($sing_product_info->subcategory_id))
+                                        {{ App\Models\Subcategory::find($sing_product_info->subcategory_id)->subcategory_name }}
+                                        @else
+                                        {{ ('uncategorized') }}
+
+                                        @endif
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="#">-</a>
                                 </li>
                                 <li>
                                     <a
-                                        href="#">{{ App\Models\Category::find($sing_product_info->category_id)->category_name }}</a>
+                                        href="#"> @if (App\Models\Category::find($sing_product_info->category_id))
+                                        {{ App\Models\Category::find($sing_product_info->category_id)->category_name }}
+                                        @else
+                                        {{ 'uncategorized' }}
+
+                                        @endif
+                                    </a>
                                 </li>
                             </ul>
                         </div>

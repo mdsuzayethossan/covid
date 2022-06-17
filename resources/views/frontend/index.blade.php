@@ -1,6 +1,7 @@
 @extends('frontend.master')
 @section('content')
     <!-- Hero/Intro Slider Start -->
+
     <div class="section ">
         <div class="hero-slider swiper-container slider-nav-style-1 slider-dot-style-1">
             <!-- Hero slider Active -->
@@ -87,6 +88,7 @@
         </div>
     </div>
 
+
     <!-- Hero/Intro Slider End -->
 
     <!-- Feature Area Srart -->
@@ -134,6 +136,7 @@
         </div>
     </div>
     <!-- Feature Area End -->
+
 
     <!-- Product Area Start -->
     <div class="product-area pt-100px pb-100px">
@@ -323,12 +326,24 @@
                                                                     <ul class="d-flex">
                                                                         <li>
                                                                             <a
-                                                                                href="#">{{ App\Models\Subcategory::find($product->subcategory_id)->subcategory_name }}</a>
+                                                                                href="#">@if ( App\Models\Subcategory::find($product->subcategory_id))
+                                                                                {{ App\Models\Subcategory::find($product->subcategory_id)->subcategory_name }}
+                                                                                @else
+                                                                                {{ 'uncategorized' }}
+
+                                                                                @endif
+                                                                            </a>
                                                                         </li>
                                                                         <li>-</li>
                                                                         <li>
                                                                             <a
-                                                                                href="#">{{ App\Models\Category::find($product->category_id)->category_name }}</a>
+                                                                                href="#">
+                                                                            @if (App\Models\Category::find($product->category_id))
+                                                                            {{ App\Models\Category::find($product->category_id)->category_name }}
+                                                                            @else
+                                                                            {{ 'uncategorized' }}
+
+                                                                            @endif</a>
                                                                         </li>
                                                                     </ul>
                                                                 </div>
@@ -515,7 +530,13 @@
                                                                         <ul class="d-flex">
                                                                             <li>
                                                                                 <a
-                                                                                    href="#">{{ App\Models\Subcategory::find($category_product->subcategory_id)->subcategory_name }}</a>
+                                                                                    href="#">
+                                                                                @if (App\Models\Subcategory::find($category_product->subcategory_id))
+                                                                                {{ App\Models\Subcategory::find($category_product->subcategory_id)->subcategory_name }}
+                                                                                @else
+                                                                                {{ 'uncategorized' }}
+                                                                                @endif
+                                                                            </a>
                                                                             </li>
                                                                             <li>-</li>
                                                                             <li>

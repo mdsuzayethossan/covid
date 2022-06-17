@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Category;
 use App\Models\color;
 use App\Models\size;
@@ -22,6 +21,7 @@ class ProductController extends Controller
         $categories = Category::all();
         $subcategories = Subcategory::all();
         $products = Product::all();
+
         return view('admin.product.index', [
             'categories' => $categories,
             'subcategories' => $subcategories,

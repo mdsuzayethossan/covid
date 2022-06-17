@@ -49,7 +49,11 @@ Covid-Subcategory
                                         @foreach ($subcategories as $subcategory)
                                         <tr>
                                             <th scope="row">{{$loop->index+1}}</th>
-                                            <td>{{App\Models\category::find($subcategory->category_id)->category_name}}</td>
+                                            <td> @if (App\Models\category::find($subcategory->category_id)){{App\Models\category::find($subcategory->category_id)->category_name}}
+                                            @else
+                                            {{ 'uncategorized' }}
+
+                                            @endif</td>
                                             <td>{{$subcategory->subcategory_name}}</td>
                                             <td>{{$subcategory->created_at}}</td>
                                             <td>{{$subcategory->updated_at}}</td>
@@ -147,7 +151,14 @@ Covid-Subcategory
                                         @foreach ($subtrashed as $trashedsubcategory)
                                         <tr>
                                             <th scope="row">{{$loop->index+1}}</th>
-                                            <td>{{App\Models\category::find($trashedsubcategory->category_id)->category_name}}</td>
+                                            <td>
+                                            @if (App\Models\category::find($trashedsubcategory->category_id))
+                                            {{App\Models\category::find($trashedsubcategory->category_id)->category_name}}
+                                            @else
+                                             {{ ('uncategorized') }}
+
+                                            @endif
+                                        </td>
                                             <td>{{$trashedsubcategory->subcategory_name}}</td>
                                             <td>{{$trashedsubcategory->created_at}}</td>
                                             <td>{{$trashedsubcategory->updated_at}}</td>

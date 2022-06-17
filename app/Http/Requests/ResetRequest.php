@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Requests;
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Foundation\Http\FormRequest;
 
-class CustomerAuthRequest extends FormRequest
+class ResetRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,6 @@ class CustomerAuthRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
             'password' => 'required',
             'password' => Password::min(8)
                 ->letters()
@@ -33,7 +31,8 @@ class CustomerAuthRequest extends FormRequest
                 ->numbers()
                 ->symbols()
                 ->uncompromised(),
-            'cpassword' => 'required|same:password'
+            'Confirm_Password' => 'same:password'
+
         ];
     }
 }
