@@ -18,12 +18,13 @@ use App\Http\Controllers\PasswordResetcontroller;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubcategoryController;
-use App\Http\Controllers\categoryController;
+use App\Http\Controllers\CategoryController;
 use App\Models\CustomerLogin;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FacebookController;
 use Illuminate\Support\Facades\App;
+use App\Http\Middleware\CheckRoleMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,13 +55,17 @@ Route::get('/admin', [HomeController::class, 'admin'])->name('admin');
 //navigation bar
 Route::get('/navigationbar', [BannerController::class, 'navigationbar'])->name('navigationbar');
 //Category
-Route::get('/category', [CategoryController::class, 'category'])->name('category');
-Route::post('/category/insert', [CategoryController::class, 'insert'])->name('category_insert');
-Route::get('/category/delete/{category_id}', [CategoryController::class, 'delete'])->name('category_delete');
-Route::get('/category/edit/{category_id}', [CategoryController::class, 'edit'])->name('category_edit');
-Route::post('/category/update', [CategoryController::class, 'update'])->name('category_update');
-Route::get('/category/restore/{category_id}', [CategoryController::class, 'restore'])->name('category_restore');
-Route::get('/category/forcedelete/{trashed_category_id}', [CategoryController::class, 'force_delete'])->name('force_delete');
+Route::get('/category', [CategoryController::class,  'category'])->name('category');
+
+Route::middleware(['checkrole'])->group(function () {
+    Route::post('/category/insert', [CategoryController::class, 'insert'])->name('category_insert');
+    Route::get('/category/delete/{category_id}', [CategoryController::class, 'delete'])->name('category_delete');
+    Route::get('/category/edit/{category_id}', [CategoryController::class, 'edit'])->name('category_edit');
+    Route::post('/category/update', [CategoryController::class, 'update'])->name('category_update');
+    Route::get('/category/restore/{category_id}', [CategoryController::class, 'restore'])->name('category_restore');
+    Route::get('/category/forcedelete/{trashed_category_id}', [CategoryController::class, 'force_delete'])->name('force_delete');
+});
+
 
 //subcategory
 Route::get('/subcategory', [SubcategoryController::class, 'subcategory'])->name('sub_category');
