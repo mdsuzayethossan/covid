@@ -69,12 +69,14 @@ Route::middleware(['checkrole'])->group(function () {
 
 //subcategory
 Route::get('/subcategory', [SubcategoryController::class, 'subcategory'])->name('sub_category');
+Route::middleware(['checkrole'])->group(function () {
 Route::post('/subcategory/insert', [SubcategoryController::class, 'insert'])->name('sub_category_insert');
 Route::get('/subcategory/edit/{subcategory_id}', [SubcategoryController::class, 'edit'])->name('sub_category_edit');
 Route::get('/subcategory/delete/{subcategory_id}', [SubcategoryController::class, 'delete'])->name('sub_category_delete');
 Route::post('/subcategory/update', [SubcategoryController::class, 'update'])->name('sub_category_update');
 Route::get('/subcategory/restore/{subcategory_id}', [SubcategoryController::class, 'restore'])->name('sub_category_restore');
 Route::get('/subcategory/permanent_delete/{subcategory_id}', [SubcategoryController::class, 'sub_per_delete'])->name('sub_per_delete');
+});
 
 
 // Profile
@@ -82,8 +84,8 @@ Route::get('/profile/edit', [ProfileController::class, 'profile_edit'])->name('p
 Route::post('/profile/update', [ProfileController::class, 'profile_update'])->name('profile_update');
 
 //product
-
 Route::get('/add/product', [ProductController::class, 'index'])->name('add.product');
+Route::middleware(['checkrole'])->group(function () {
 Route::post('/getsubcategory', [ProductController::class, 'getsubcategory']);
 Route::post('/product/insert', [ProductController::class, 'product_insert'])->name('product.insert');
 Route::get('edit/product/{product_id}', [ProductController::class, 'product_edit'])->name('product_edit');
@@ -93,11 +95,14 @@ Route::post('/getsize', [ProductController::class, 'getsize']);
 //Inventory
 Route::get('/inventory/{invenotry_id}', [ProductController::class, 'inventory'])->name('inventory');
 Route::post('/inventory/insert', [ProductController::class, 'inventory_insert'])->name('inventory_insert');
+});
 
 //Color And Size
 Route::get('/color_size', [ProductController::class, 'color_size'])->name('color_size');
+Route::middleware(['checkrole'])->group(function () {
 Route::post('/color_size/insert', [ProductController::class, 'color_size_insert'])->name('color_size_insert');
 Route::post('/size/insert', [ProductController::class, 'size_insert'])->name('size_insert');
+});
 
 
 //frontend Login & Register
