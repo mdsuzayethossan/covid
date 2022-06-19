@@ -8,6 +8,7 @@ use App\Models\customeremailverify;
 use App\Models\CustomerLogin;
 use Illuminate\Support\Facades\Auth;
 use App\Notifications\CutomerEmailVerifyNotification;
+use Notification;
 
 
 class CustomerRegisterController extends Controller

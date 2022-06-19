@@ -24,16 +24,16 @@ class CustomerAuthRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required',
-            'password' => Password::min(8)
-                ->letters()
-                ->mixedCase()
-                ->numbers()
-                ->symbols()
-                ->uncompromised(),
-            'cpassword' => 'required|same:password'
+            // 'name' => 'required',
+            // 'email' => 'required|email|unique:customer_logins,email',
+            // 'password' => 'required',
+            // 'password' => Password::min(8)
+            //     ->letters()
+            //     ->mixedCase()
+            //     ->numbers()
+            //     ->symbols()
+            //     ->uncompromised(),
+            // 'cpassword' => 'required|same:password'
         ];
     }
 }

@@ -78,13 +78,13 @@
                                             </div>
 
                                             <div class="third_party_facebook">
-                                                    <a class="third_party_login_fb" href=""><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
+                                                    <a class="third_party_login_fb" href="{{ route('facebook.redirect') }}"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
                                             </div>
                                             <div class="third_party_google">
                                                     <a class="third_party_login_g" href="{{ url('/google/redirect') }}"><i class="fa fa-google" aria-hidden="true"></i>Google</a>
                                             </div>
                                             <div class="third_party_github">
-                                                    <a class="third_party_login_gt" href="{{ url('/github/redirect') }}"><i class="fa fa-google" aria-hidden="true"></i>Github</a>
+                                                    <a class="third_party_login_gt" href="{{ url('/github/redirect') }}"><i class="fa fa-github" aria-hidden="true"></i>Github</a>
                                             </div>
                                         </div>
                                     </div>

@@ -165,6 +165,8 @@ Route::get('/github/callback', [GithubController::class, 'redirectToWebsite']);
 Route::get('/google/redirect', [GoogleController::class, 'redirectToProvider']);
 Route::get('/google/callback', [GoogleController::class, 'redirectToWebsite']);
 //Facebook
+Route::get('/facebook/redirect', [FacebookController::class, 'redirectToProvider'])->name('facebook.redirect');
+Route::get('/facebook/callback', [FacebookController::class, 'redirectToWebsite']);
 
 
 // customer email verify

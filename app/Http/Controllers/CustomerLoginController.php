@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Exists;
 use PDF;
 use function Ramsey\Uuid\v1;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerLoginController extends Controller
 {
@@ -20,16 +21,21 @@ class CustomerLoginController extends Controller
 
         $check_verify_token = customeremailverify::where('verify_token', $verify_token)->firstOrFail();
         $customer_id = CustomerLogin::findOrFail($check_verify_token->customer_id);
+        // $customer_email = CustomerLogin::where('id', $customer_id->id)->first()->email;
+        // $customer_password = Hash::check(CustomerLogin::where('id', $customer_id->id)->first()->password);
+
+
         $customer_id->update([
-            'customer_email_verify_at'=>Carbon::now(),
+            'email_verified_at'=>Carbon::now(),
         ]);
+        // if(Auth::where('customerlogin')->attempt(['email' => $customer_email, 'password' => $request->password]))
         customeremailverify::where('id', $check_verify_token->id)->delete();
+
         $customer_name = $customer_id->name;
         session([
             'customer_name' =>$customer_name,
         ]);
         return redirect('/customer/email/verified')->with('verified', ' Your email address has been successfully confirmed. Please sign in.');
-
 
     }
     function email_verified() {
@@ -39,7 +45,7 @@ class CustomerLoginController extends Controller
     {
         $request_email = $request->email.' is not registered for this application.';
         if(CustomerLogin::where('email', $request->email)->exists()){
-            if(CustomerLogin::where('email', $request->email)->where('customer_email_verify_at', '!=', null)->exists()){
+            if(CustomerLogin::where('email', $request->email)->where('email_verified_at', '!=', null)->exists()){
                 if (Auth::guard('customerlogin')->attempt(['email' => $request->email, 'password' => $request->password])) {
                     return redirect('/');
                 } else {
@@ -54,7 +60,7 @@ class CustomerLoginController extends Controller
 
         }
         else {
-            return redirect()->route('customer_register')->with('notverified',$request_email, 'email is not registered');
+            return redirect()->route('customer_register')->with('notverified','The '. $request_email. ' '.'address is not recognized');
 
         }
 

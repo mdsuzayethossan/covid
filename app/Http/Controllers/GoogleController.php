@@ -17,7 +17,7 @@ class GoogleController extends Controller
     function redirectToWebsite() {
         $user = Socialite::driver('google')->user();
         if(CustomerLogin::where('email', $user->getEmail())->exists()){
-            if(Auth::guard('customerlogin')->attempt(['email'=> $user->getEmail(), 'password'=>'~wA!rP2PR5-cFJ/V'])) {
+            if(Auth::guard('customerlogin')->attempt(['email'=> $user->getEmail(), 'password'=>'vR+wXFYMrXh7Y_9Z'])) {
                 return redirect('/');
              }
 
@@ -26,10 +26,10 @@ class GoogleController extends Controller
             CustomerLogin::create([
                 'name' => $user->getName(),
                 'email' => $user->getEmail(),
-                'password' => bcrypt('~wA!rP2PR5-cFJ/V'),
+                'password' => bcrypt('vR+wXFYMrXh7Y_9Z'),
                 'created_at' => Carbon::now(),
             ]);
-            if(Auth::guard('customerlogin')->attempt(['email'=> $user->getEmail(), 'password'=>'~wA!rP2PR5-cFJ/V'])) {
+            if(Auth::guard('customerlogin')->attempt(['email'=> $user->getEmail(), 'password'=>'vR+wXFYMrXh7Y_9Z'])) {
                return redirect('/');
             }
 
