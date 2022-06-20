@@ -16,8 +16,6 @@
     <link href="{{asset('dashboard_assets/lib/Ionicons/css/ionicons.css')}}" rel="stylesheet">
     <link href="{{asset('dashboard_assets/lib/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-
-
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="{{asset('dashboard_assets/css/starlight.css')}}">
   </head>
@@ -241,13 +239,26 @@
 
         @yield('content')
 
+
+
     <script src="{{asset('dashboard_assets/lib/jquery/jquery.js')}}"></script>
     <script src="{{asset('dashboard_assets/lib/popper.js/popper.js')}}"></script>
     <script src="{{asset('dashboard_assets/lib/bootstrap/bootstrap.js')}}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{asset('dashboard_assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js')}}"></script>
-    <script src="{{asset('dashboard_assets/js/starlight.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="{{asset('dashboard_assets/js/starlight.js')}}"></script>
     @yield('footer_script')
+    <script>
+    @if (session('notadmin'))
+        Swal.fire(
+          'Oops...',
+          '{{ session('notadmin') }}',
+          'warning'
+        );
+
+    @endif
+  </script>
 
   </body>
 </html>

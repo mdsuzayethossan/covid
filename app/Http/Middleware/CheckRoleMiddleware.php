@@ -22,7 +22,7 @@ class CheckRoleMiddleware
             return $next($request);
         }
         else {
-            return back();
+            return back()->with('notadmin', 'You are not authorized to perform this action. only you can see everything.');
         }
     }
 }
