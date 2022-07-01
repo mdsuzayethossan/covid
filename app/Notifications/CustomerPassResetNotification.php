@@ -41,6 +41,8 @@ class CustomerPassResetNotification extends Notification
      */
     public function toMail($notifiable)
     {
+        // return (new MailMessage)->view('CustomAuth.passreset', ['reset_token' => $this->reset_data->reset_token]
+        // );
         return (new MailMessage)
         ->line('You are receiving this email because we received a password reset request for your account.')
         ->action('Reset Password', url('/customer/password/reset/form/'.$this->reset_data->reset_token))

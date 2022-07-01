@@ -217,12 +217,25 @@
                                                                         <ul class="d-flex">
                                                                             <li>
                                                                                 <a
-                                                                                    href="#">{{ App\Models\Subcategory::find($product->subcategory_id)->subcategory_name }}</a>
+                                                                                    href="#">
+                                                                                @if (App\Models\Subcategory::find($product->subcategory_id))
+                                                                                {{ App\Models\Subcategory::find($product->subcategory_id)->subcategory_name }}
+                                                                                @else
+                                                                                {{ 'Uncategorized' }}
+
+                                                                                @endif
+                                                                                </a>
                                                                             </li>
                                                                             <li>-</li>
                                                                             <li>
                                                                                 <a
-                                                                                    href="#">{{ App\Models\Category::find($product->category_id)->category_name }}</a>
+                                                                                    href="#"> @if (App\Models\Category::find($product->category_id))
+                                                                                    {{ App\Models\Category::find($product->category_id)->category_name }}
+                                                                                    @else
+                                                                                    {{ 'Uncategorized' }}
+
+                                                                                    @endif
+                                                                                </a>
                                                                             </li>
                                                                         </ul>
                                                                     </div>

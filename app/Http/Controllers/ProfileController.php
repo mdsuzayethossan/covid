@@ -31,14 +31,11 @@ class ProfileController extends Controller
                 ->symbols()
                 ->uncompromised(),
         ]);
-        // $new_profile_photo = $request->photo;
-        // $extension = $new_profile_photo->getClientoriginalExtension();
-        // $new_profile_name = Auth::id() . '.' . $extension;
-        // image::make($new_profile_photo)->save(base_path('public/uploads/users/' . $new_profile_name));
+
         if (Auth::user()->photo != 'default.png') {
-            
+
             $path = public_path() . "/uploads/users/" . Auth::user()->photo;
-            
+
             if(is_file($path)){
                 unlink($path);
                 $new_profile_photo = $request->photo;
@@ -54,10 +51,14 @@ class ProfileController extends Controller
                 image::make($new_profile_photo)->save(base_path('public/uploads/users/' . $new_profile_name));
 
             }
-           
+
         }
 
         if (Hash::check($request->ol_password, Auth::user()->password)) {
+            $new_profile_photo = $request->photo;
+            $extension = $new_profile_photo->getClientoriginalExtension();
+            $new_profile_name = Auth::id() . '.' . $extension;
+            image::make($new_profile_photo)->save(base_path('public/uploads/users/' . $new_profile_name));
             User::find(Auth::id())->update([
                 'name' => $request->profile_name,
                 'password' => bcrypt($request->password),

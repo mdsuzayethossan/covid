@@ -236,10 +236,7 @@
       </div><!-- tab-content -->
     </div><!-- sl-sideright -->
     <!-- ########## END: RIGHT PANEL ########## --->
-
-        @yield('content')
-
-
+    @yield('content')
 
     <script src="{{asset('dashboard_assets/lib/jquery/jquery.js')}}"></script>
     <script src="{{asset('dashboard_assets/lib/popper.js/popper.js')}}"></script>
@@ -256,9 +253,7 @@
           '{{ session('notadmin') }}',
           'warning'
         );
-
     @endif
   </script>
-
   </body>
 </html>

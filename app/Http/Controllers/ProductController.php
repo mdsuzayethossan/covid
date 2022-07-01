@@ -156,6 +156,7 @@ class ProductController extends Controller
 
         ]);
     }
+
     //getSize method post
     function getsize(Request $request)
     {
@@ -181,7 +182,11 @@ class ProductController extends Controller
 
 
     }
-    //find inventory according colorId SizeId
+      /*
+    |--------------------------------------------------------------------------
+    | Find inventory according colorId SizeId
+    |--------------------------------------------------------------------------
+    */
     function SendsizeId(Request $request) {
         $availableProducts = inventory::where('product_id', $request->product_id)->where('color_id', $request->color_id)->where('size_id', $request->size_id)->first()->product_quantity;
         $stockOut = 'Stock Out';
@@ -196,4 +201,16 @@ class ProductController extends Controller
 
 
     }
+      /*
+    |--------------------------------------------------------------------------
+    | Product Review
+    |--------------------------------------------------------------------------
+    */
+    function review_put() {
+
+    }
+
+
+
+
 }

@@ -309,7 +309,8 @@
                                 <div class="ratting-form-wrapper pl-50">
                                     <h3>Add a Review</h3>
                                     <div class="ratting-form">
-                                        <form action="#">
+                                        <form method="POST" action="{{ route('review.put') }}">
+                                            @csrf
                                             <div class="star-box">
                                                 <span>Your rating:</span>
                                                 <div class="rating-product">
@@ -627,7 +628,6 @@
             //get color Id
             var color_id = $(this).attr('name');
             var product_id = "{{ $sing_product_info->id }}";
-
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -727,6 +727,30 @@
 
     @endif
 
+@endsection
+@section('footer_script')
+@if (session('unauthenticated'))
+<script>
+    Swal.fire({
+        title: 'Are you authenticated with your application?',
+        text: '{{ session('unauthenticated') }}',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '{{ route('login') }}'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+            )
+        }
+        });
+</script>
+
+@endif
 @endsection
 
 

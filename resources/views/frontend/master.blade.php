@@ -72,7 +72,7 @@
                                                 <li class="title"><a href="#">Other Shop Pages</a></li>
                                                 <li><a href="cart.html">Cart Page</a></li>
                                                 <li><a href="checkout.html">Checkout Page</a></li>
-                                                <li><a href="wishlist.html">Wishlist Page</a></li>
+                                                <li><a href="{{ route('wishlist') }}">Wishlist Page</a></li>
                                                 <li><a href="my-account.html">Account Page</a></li>
                                                 <li><a href="login.html">Login & Register Page</a></li>
                                             </ul>
@@ -91,7 +91,7 @@
                                                 <li>
                                                     <a class="p-0" href="shop-left-sidebar.html"><img
                                                             class="img-responsive w-100"
-                                                            src="{{ asset('frontend_assets/images/banner/7.jpg') }}"
+                                                            src="{{ asset('frontend_assets/images/banner/1.jpg') }}"
                                                             alt=""></a>
                                                 </li>
                                                 <li>
@@ -520,14 +520,9 @@
 
     <script src="{{ asset('frontend_assets/js/vendor/vendor.min.js') }}"></script>
     <script src="{{ asset('frontend_assets/js/plugins/plugins.min.js') }}"></script>
-    <!-- Main Js -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{ asset('frontend_assets/js/main.js') }}"></script>
     @yield('footer_script')
 </body>
-
-
-<!-- Mirrored from template.hasthemes.com/jesco/jesco/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Sep 2021 07:19:21 GMT -->
-
 </html>

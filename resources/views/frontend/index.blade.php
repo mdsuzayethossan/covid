@@ -193,7 +193,7 @@
                                                     @endif
                                                 </span>
                                                 <div class="actions">
-                                                    <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                    <a name="{{ $product->id }}" class="action wishlist add_wishlist" title="Wishlist"><i
                                                             class="pe-7s-like"></i></a>
                                                     <a href="#" class="action quickview" data-link-action="quickview"
                                                         title="Quick view" data-bs-toggle="modal"
@@ -204,8 +204,8 @@
                                                             class="pe-7s-refresh-2"></i></a>
                                                 </div>
                                                 @auth('customerlogin')
-                                                <button title="Add To Cart" class="add-to-cart">Add
-                                                    To Cart</button>
+                                                <a href="{{ route('product_details', $product->id) }}" title="Add To Cart" class="add-to-cart">Add
+                                                    To Cart</a>
                                                 @else
                                                 <a href="{{ url('/customer_register') }}" class=" add-to-cart">Add
                                                     To Cart</a>
@@ -586,7 +586,7 @@
                             </div>
                         @endforeach
                     </div>
-                    <a href="shop-left-sidebar.html" class="btn btn-lg btn-primary btn-hover-dark m-auto"> Load More <i
+                    <a href="{{ route('shop') }}" class="btn btn-lg btn-primary btn-hover-dark m-auto"> Load More <i
                             class="fa fa-arrow-right ml-15px" aria-hidden="true"></i></a>
                 </div>
             </div>
@@ -604,7 +604,7 @@
                         <img src="{{ asset('uploads/category') }}/{{ $categoryForbanner->category_image }}" alt="">
                         <div class="item-disc">
                             <h4 class="title">{{ $categoryForbanner->category_name }}</h4>
-                            <a href="shop-left-sidebar.html" class="shop-link btn btn-primary ">Shop Now <i
+                            <a href="{{ route('shop') }}" class="shop-link btn btn-primary ">Shop Now <i
                                     class="fa fa-shopping-basket ml-5px" aria-hidden="true"></i></a>
                         </div>
                     </div>
@@ -1305,7 +1305,7 @@
                             <div class="deal-timing">
                                 <div data-countdown="2021/05/15"></div>
                             </div>
-                            <a href="shop-left-sidebar.html" class="btn btn-lg btn-primary btn-hover-dark m-auto"> Shop
+                            <a href="{{ route('shop') }}" class="btn btn-lg btn-primary btn-hover-dark m-auto"> Shop
                                 Now <i class="fa fa-shopping-basket ml-15px" aria-hidden="true"></i></a>
                         </div>
                         <div class="deal-image">
@@ -1407,4 +1407,30 @@
         </div>
     </div>
     <!--  Blog area End -->
-@endsection
+    @endsection
+    @section('footer_script')
+    <script>
+        $('.add_wishlist').click(function(){
+            const product_id = $(this).attr('name');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/wishlist/product_id',
+                    data : {
+                        product_id : product_id,
+                    }
+                    // success: function(data) {
+                    //     alert(data)
+                    // }
+
+                });
+
+
+        });
+    </script>
+    @endsection

@@ -1,6 +1,6 @@
 
 {{-- frontend Register --}}
-@extends('frontend.master');
+@extends('frontend.master')
 @section('content')
     <!-- breadcrumb-area start -->
     <div class="breadcrumb-area">
